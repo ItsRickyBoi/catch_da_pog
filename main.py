@@ -1,6 +1,20 @@
 import pygame
 import random
 import math
+import sys
+import os
+
+
+# to make it into executable file
+def resource_path(relative_path):
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
 
 # Initialize the pygame
 pygame.init()
@@ -10,25 +24,29 @@ screen = pygame.display.set_mode((800, 600))
 
 # Title and icon
 pygame.display.set_caption("Catch Da Pog")
-icon = pygame.image.load('pepe.png')
+icon_url = resource_path('assets/chars/pepe.png')
+icon = pygame.image.load(icon_url)
 pygame.display.set_icon(icon)
 myfont = pygame.font.SysFont("monospace", 16)
 
 # background image
-background = pygame.image.load('catch.png')
+background_url = resource_path('assets/chars/catch.png')
+background = pygame.image.load(background_url)
 
 # scoring
 score = 0
 
 # player
-PlayerImg = pygame.image.load('han.png')
+player_url = resource_path('assets/chars/han.png')
+PlayerImg = pygame.image.load(player_url)
 playerX = 50
 playerY = 275
 playerX_change = 0
 playerY_change = 0
 
 # Enemy
-EnemyImg = pygame.image.load('pog.png')
+enemy_url = resource_path('assets/chars/pog.png')
+EnemyImg = pygame.image.load(enemy_url)
 enemyX = random.randint(700, 744)
 enemyY = random.randint(50, 275)
 enemyX_change = 5
