@@ -1,1 +1,1 @@
-Thanks to my friend for providing his face for the meme
+Thanks to my friend for the picture, all of memes
